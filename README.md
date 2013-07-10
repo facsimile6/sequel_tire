@@ -6,15 +6,11 @@ Sequel plugin for patching Sequel::Model to work with Tire::Model
 
 Add this line to your application's Gemfile:
 
-    gem 'sequel_tire'
+    gem 'sequel_tire', :git => 'https://github.com/facsimile6/sequel_tire'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install sequel_tire
 
 ## Usage
 

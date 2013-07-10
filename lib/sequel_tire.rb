@@ -10,6 +10,7 @@ module Sequel
       module ::Tire::Tasks::Import
         alias_method :__original_add_pagination_to_klass, :add_pagination_to_klass
 
+        # If the model is a Sequel::Model then add a pagination method, otherwise fall back to Tire's pagination methods
         def add_pagination_to_klass(klass)
           if klass.ancestors.include? Sequel::Model
             klass.instance_eval do
@@ -58,8 +59,6 @@ module Sequel
 
       def self.apply(model, options={})
         model.include(::Tire::Model::Search)
-
-        #::Tire::Model::Search::Results::Item.send :include, ::Tire::Model::Search::Loader
 
         # Reopen the model class to override the search method
         class << model
